@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href=https://activez.github.io/top-collegues",
+    "build": "ng build --base-href=https://activez.github.io/top-collegues/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
