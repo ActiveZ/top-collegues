@@ -1,9 +1,11 @@
 # Source: https://focisolutions.com/2020/04/github-actions-deploying-an-angular-app/
 name: Deploy To GitHub Pages
+
 on:
   push:
     branches:
       - 'master'
+      
 jobs:
   build:
     name: Build Angular App
