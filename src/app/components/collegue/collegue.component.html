@@ -1,6 +1,9 @@
-<h1>Hello top-collègues !</h1>
 <p>pseudo: {{ collegue.pseudo }}</p>
 <img src="{{ collegue.photoUrl }}" alt="image" />
 <p>score: {{ collegue.score }}</p>
 
-<app-avis (changeScore)="onChangeScore($event)" [btAimerDisabled]="btAimerDisabled" [btDetesterDisabled]="btDetesterDisabled"></app-avis>
+<app-avis
+  (changeScore)="onChangeScore($event)"
+  [btAimerDisabled]="btAimerDisabled"
+  [btDetesterDisabled]="btDetesterDisabled"
+></app-avis>
