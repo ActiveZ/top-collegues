@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { avis } from 'src/app/models';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { avis, Collegue } from 'src/app/models';
 
 @Component({
   selector: 'app-avis',
@@ -7,8 +7,11 @@ import { avis } from 'src/app/models';
   styleUrls: ['./avis.component.scss'],
 })
 export class AvisComponent implements OnInit {
-  @Output()
-  changeScore: EventEmitter<avis> = new EventEmitter<avis>();
+  @Input() collegue!: Collegue;
+  @Input() btAimerDisabled: boolean = false;
+  @Input() btDetesterDisabled: boolean = false;
+
+  @Output() changeScore: EventEmitter<avis> = new EventEmitter<avis>();
 
   constructor() {}
 

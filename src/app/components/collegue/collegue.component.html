@@ -3,4 +3,4 @@
 <img src="{{ collegue.photoUrl }}" alt="image" />
 <p>score: {{ collegue.score }}</p>
 
-<app-avis (changeScore)="onChangeScore($event)"></app-avis>
+<app-avis (changeScore)="onChangeScore($event)" [btAimerDisabled]="btAimerDisabled" [btDetesterDisabled]="btDetesterDisabled"></app-avis>

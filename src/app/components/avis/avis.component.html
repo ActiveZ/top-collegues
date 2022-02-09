@@ -1,4 +1,4 @@
 <div class="p-5 text-center">
-  <button type="button" class="btn btn-success m-5"(click)="onAimer()">J'aime</button>
-  <button type="button" class="btn btn-danger m-5"(click)="onDetester()">Je déteste</button>
+  <button type="button" class="btn btn-success m-5" [disabled]="btAimerDisabled" (click)="onAimer()">J'aime</button>
+  <button type="button" class="btn btn-danger m-5" [disabled]="btDetesterDisabled" (click)="onDetester()">Je déteste</button>
 </div>
