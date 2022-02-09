@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'score'
+  name: 'score',
 })
 export class ScorePipe implements PipeTransform {
-
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(unsignedScore: number): string {
+    return (unsignedScore >= 0 ? '+ ' : '- ') + Math.abs(unsignedScore).toString();
   }
-
 }

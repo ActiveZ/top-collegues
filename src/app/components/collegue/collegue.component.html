@@ -1,6 +1,6 @@
 <p>pseudo: {{ collegue.pseudo | uppercase }}</p>
 <img src="{{ collegue.photoUrl }}" alt="image" />
-<p>score: {{ collegue.score }}</p>
+<p>score: {{ collegue.score | score }}</p>
 
 <app-avis
   (changeScore)="onChangeScore($event)"
