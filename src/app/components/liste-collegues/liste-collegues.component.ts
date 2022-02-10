@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Collegue } from 'src/app/models';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-liste-collegues',
@@ -7,32 +8,18 @@ import { Collegue } from 'src/app/models';
   styleUrls: ['./liste-collegues.component.scss'],
 })
 export class ListeColleguesComponent implements OnInit {
-  collInit: Collegue = {
-    pseudo: '',
-    photoUrl: '',
-    score: 0,
-  };
 
   // tableau des collegues
   collegues: Collegue[] = [];
-  nbCollegue = 10;
 
-  constructor() {}
+  constructor(private dataSrv: DataService) {}
 
   ngOnInit(): void {
     // création d'un tableau de collègues au démarrage
-    this.fetchImages();
+    this.getCollegues();
   }
 
-  async fetchImages() {
-    for (let i = 0; i < this.nbCollegue; i++) {
-      await fetch('https://picsum.photos/200/200').then((data) => {
-        this.collegues.push({
-          pseudo: 'pseudo ' + (i + 1),
-          photoUrl: data.url,
-          score: 1000,
-        });
-      });
-    }
+  getCollegues() {
+    this.dataSrv.getCollegues().subscribe((data) => (this.collegues = data));
   }
 }
