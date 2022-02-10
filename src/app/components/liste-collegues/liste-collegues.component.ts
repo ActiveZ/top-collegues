@@ -24,9 +24,9 @@ export class ListeColleguesComponent implements OnInit {
     this.fetchImages();
   }
 
-  fetchImages() {
+  async fetchImages() {
     for (let i = 0; i < this.nbCollegue; i++) {
-      fetch('https://picsum.photos/200/200').then((data) => {
+      await fetch('https://picsum.photos/200/200').then((data) => {
         this.collegues.push({
           pseudo: 'pseudo ' + (i + 1),
           photoUrl: data.url,
