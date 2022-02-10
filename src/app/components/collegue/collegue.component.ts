@@ -21,9 +21,7 @@ export class CollegueComponent implements OnInit {
   }
 
   onChangeScore(monAvis: avis) {
-    this.dataSrv.vote(this.collegue.pseudo, monAvis)
-    // if (monAvis == avis.AIME) this.collegue.score += 100;
-    // if (monAvis == avis.DETESTE) this.collegue.score -= 100;
+    this.dataSrv.postVote(this.collegue.pseudo, monAvis)
     this.btAimerDisabled = this.collegue.score >= 1000;
     this.btDetesterDisabled = this.collegue.score <= -1000;
   }

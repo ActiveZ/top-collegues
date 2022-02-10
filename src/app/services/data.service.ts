@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { avis, Collegue } from '../models';
+import { avis, Collegue, Vote } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +9,10 @@ import { avis, Collegue } from '../models';
 export class DataService {
   private url = 'https://formation-angular-collegues.herokuapp.com/api/v1';
 
-  private headers = {
-    'Access-Control-Allow-Origin': '*',
-    'content-type': 'application/json',
-  };
+  // private headers = { // inutilisé
+  //   'Access-Control-Allow-Origin': '*',
+  //   'content-type': 'application/json',
+  // };
 
   constructor(private http: HttpClient) {}
 
@@ -20,15 +20,17 @@ export class DataService {
     return this.http.get<Collegue[]>(this.url + '/collegues');
   }
 
-  vote(pseudo: string, avis: avis) {
+  postVote(pseudo: string, avis: avis) {
     const body = {
-      avis: 'AIMER',
-      // avis: avis,
+      avis: avis,
       pseudo: pseudo,
     };
-    console.log('log', JSON.stringify(body), this.url);
     this.http
-      .post(this.url + '/votes', JSON.stringify(body))
-      .subscribe((data) => console.log('data', data));
+      .post(this.url + '/votes', body)
+      .subscribe((data) => console.log('data', data)); // vérification de l'opération => retour collegue modifié si ok
+  }
+
+  listerVotes(): Observable<Vote[]> {
+    return this.http.get<Vote[]>(this.url + '/votes');
   }
 }
