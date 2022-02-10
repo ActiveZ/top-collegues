@@ -21,12 +21,14 @@ export class ListeColleguesComponent implements OnInit {
   ngOnInit(): void {
     // création d'un tableau avec 10 collègues au démarrage
     for (let i = 0; i < 10; i++) {
-      this.collegues.push({
-        pseudo: 'pseudo ' + (i + 1),
-        photoUrl: 'https://picsum.photos/200/200',
-        score: 1000,
+      fetch('https://picsum.photos/200/200').then((data) => {
+        this.collegues.push({
+          pseudo: 'pseudo ' + (i + 1),
+          photoUrl: data.url,
+          score: 1000,
+        });
       });
     }
-    console.log(this.collegues);
+    // console.log(this.collegues);
   }
 }
