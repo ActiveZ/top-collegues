@@ -15,12 +15,17 @@ export class ListeColleguesComponent implements OnInit {
 
   // tableau des collegues
   collegues: Collegue[] = [];
+  nbCollegue = 10;
 
   constructor() {}
 
   ngOnInit(): void {
-    // création d'un tableau avec 10 collègues au démarrage
-    for (let i = 0; i < 10; i++) {
+    // création d'un tableau de collègues au démarrage
+    this.fetchImages();
+  }
+
+  fetchImages() {
+    for (let i = 0; i < this.nbCollegue; i++) {
       fetch('https://picsum.photos/200/200').then((data) => {
         this.collegues.push({
           pseudo: 'pseudo ' + (i + 1),
@@ -29,6 +34,5 @@ export class ListeColleguesComponent implements OnInit {
         });
       });
     }
-    // console.log(this.collegues);
   }
 }
