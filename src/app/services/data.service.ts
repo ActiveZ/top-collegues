@@ -9,11 +9,6 @@ import { avis, Collegue, Vote } from '../models';
 export class DataService {
   private url = 'https://formation-angular-collegues.herokuapp.com/api/v1';
 
-  // private headers = { // inutilisé
-  //   'Access-Control-Allow-Origin': '*',
-  //   'content-type': 'application/json',
-  // };
-
   constructor(private http: HttpClient) {}
 
   getCollegues(): Observable<Collegue[]> {

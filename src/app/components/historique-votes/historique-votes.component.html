@@ -1,1 +1,12 @@
-<p>historique-votes works!</p>
+<div *ngFor="let v of votes" class="row p-2 m-2 border border-1">
+  <div class="col-1">
+    <img src="{{ v.collegue.photo }}" alt="photo_collegue" />
+  </div>
+  <div class="col text-start">
+    <p>{{ v.collegue.pseudo }}</p>
+    <p>{{ v.collegue.pseudo }} a désormais un score de {{ v.score }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteVote()">
+      supprimer
+    </button>
+  </div>
+</div>
