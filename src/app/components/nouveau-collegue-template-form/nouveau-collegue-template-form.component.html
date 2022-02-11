@@ -1,6 +1,6 @@
 <h1>Formulaire piloté par le template</h1>
 
-<form #formCollegue="ngForm">
+<form #formCollegue="ngForm" appNomPrenomValidator>
 
     Pseudo<input type="text" [(ngModel)]="newCollegue.pseudo" name="pseudo" #pseudo="ngModel" id="" required>
     <div *ngIf="pseudo.dirty && pseudo.invalid">Pseudo requis</div>
@@ -13,6 +13,8 @@
 
     Photo url<input type="text" [(ngModel)]="newCollegue.photo" name="photo" #photo="ngModel" id="" required >
     <div *ngIf="photo.dirty && photo.invalid">URL photo requise</div>
+    
+    <div *ngIf="formCollegue.errors && nom.dirty">Erreur: nom et prénom identiques</div>
 
     <button [disabled]="formCollegue.invalid" (click)="submit()" >Ajouter</button>
 </form>
