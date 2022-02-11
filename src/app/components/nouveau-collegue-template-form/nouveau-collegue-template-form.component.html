@@ -3,16 +3,16 @@
 <form #formCollegue="ngForm">
 
     Pseudo<input type="text" [(ngModel)]="newCollegue.pseudo" name="pseudo" #pseudo="ngModel" id="" required>
-    <div *ngIf="pseudo.dirty && pseudo.invalid">invalide</div>
+    <div *ngIf="pseudo.dirty && pseudo.invalid">Pseudo requis</div>
 
     Nom<input type="text" [(ngModel)]="newCollegue.nom" name="nom" id="" #nom="ngModel" required minlength="2">
-    <div *ngIf="nom.dirty && nom.invalid">invalide</div>
+    <div *ngIf="nom.dirty && nom.invalid">Le nom doit avoir au moins 2 caractères</div>
 
     Prenom<input type="text" [(ngModel)]="newCollegue.prenom" name="prenom" #prenom="ngModel" id="" required  minlength="2">
-    <div *ngIf="prenom.dirty && prenom.invalid">invalide</div>
+    <div *ngIf="prenom.dirty && prenom.invalid">Le prénom doit avoir au moins 2 caractères</div>
 
     Photo url<input type="text" [(ngModel)]="newCollegue.photo" name="photo" #photo="ngModel" id="" required >
-    <div *ngIf="photo.dirty && photo.invalid">invalide</div>
+    <div *ngIf="photo.dirty && photo.invalid">URL photo requise</div>
 
     <button [disabled]="formCollegue.invalid" (click)="submit()" >Ajouter</button>
 </form>

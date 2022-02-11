@@ -11,6 +11,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './components/historique-votes/historique-votes.component';
 import { NouveauCollegueTemplateFormComponent } from './components/nouveau-collegue-template-form/nouveau-collegue-template-form.component';
+import { NomPrenomValidatorDirective } from './validators/nom-prenom-validator.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NouveauCollegueTemplateFormComponent } from './components/nouveau-colle
     AccueilComponent,
     ScorePipe,
     HistoriqueVotesComponent,
-    NouveauCollegueTemplateFormComponent
+    NouveauCollegueTemplateFormComponent,
+    NomPrenomValidatorDirective
   ],
   imports: [
     BrowserModule,
