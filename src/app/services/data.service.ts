@@ -15,6 +15,10 @@ export class DataService {
     return this.http.get<Collegue[]>(this.url + '/collegues');
   }
 
+  postCollegue(collegue:Partial<Collegue>): Observable<Collegue> {
+    return this.http.post<Collegue>(this.url + '/collegues', collegue);
+  }
+
   postVote(pseudo: string, avis: avis) {
     const body = {
       avis: avis,
