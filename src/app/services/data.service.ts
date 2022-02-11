@@ -15,7 +15,7 @@ export class DataService {
     return this.http.get<Collegue[]>(this.url + '/collegues');
   }
 
-  postCollegue(collegue:Partial<Collegue>): Observable<Collegue> {
+  postCollegue(collegue: Partial<Collegue>): Observable<Collegue> {
     return this.http.post<Collegue>(this.url + '/collegues', collegue);
   }
 
@@ -31,5 +31,9 @@ export class DataService {
 
   listerVotes(): Observable<Vote[]> {
     return this.http.get<Vote[]>(this.url + '/votes');
+  }
+
+  getCollegueByPseudo(pseudo: string): Observable<Collegue> {
+    return this.http.get<Collegue>(this.url + '/collegues/' + pseudo);
   }
 }

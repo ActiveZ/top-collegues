@@ -1,9 +1,12 @@
 <h1>Formulaire piloté par le template</h1>
 
-<form #formCollegue="ngForm" appNomPrenomValidator>
+<form #formCollegue="ngForm" appNomPrenomValidator >
 
-    Pseudo<input type="text" [(ngModel)]="newCollegue.pseudo" name="pseudo" #pseudo="ngModel" id="" required>
+    Pseudo<input type="text" appPseudoValidator [(ngModel)]="newCollegue.pseudo" name="pseudo" #pseudo="ngModel" id="" required>
     <div *ngIf="pseudo.dirty && pseudo.invalid">Pseudo requis</div>
+    <div *ngIf="pseudo?.errors?.['pseudoExists']">
+        Erreur: Le pseudo "{{newCollegue.pseudo}}" est déjà utilisé
+    </div>
 
     Nom<input type="text" [(ngModel)]="newCollegue.nom" name="nom" id="" #nom="ngModel" required minlength="2">
     <div *ngIf="nom.dirty && nom.invalid">Le nom doit avoir au moins 2 caractères</div>

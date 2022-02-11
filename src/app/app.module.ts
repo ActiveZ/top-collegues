@@ -12,6 +12,7 @@ import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './components/historique-votes/historique-votes.component';
 import { NouveauCollegueTemplateFormComponent } from './components/nouveau-collegue-template-form/nouveau-collegue-template-form.component';
 import { NomPrenomValidatorDirective } from './validators/nom-prenom-validator.directive';
+import { PseudoValidatorDirective } from './validators/pseudo-validator.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NomPrenomValidatorDirective } from './validators/nom-prenom-validator.d
     ScorePipe,
     HistoriqueVotesComponent,
     NouveauCollegueTemplateFormComponent,
-    NomPrenomValidatorDirective
+    NomPrenomValidatorDirective,
+    PseudoValidatorDirective
   ],
   imports: [
     BrowserModule,
