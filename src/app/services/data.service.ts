@@ -11,7 +11,7 @@ export class DataService {
 
   private url = 'https://formation-angular-collegues.herokuapp.com/api/v1';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ///////////// FLUX SUBJECT COLLEGUES ///////////////////
 
@@ -39,7 +39,11 @@ export class DataService {
     };
     this.http
       .post(this.url + '/votes', body)
-      .subscribe((data) => console.log('data', data)); // vérification de l'opération => retour collegue modifié si ok
+      .subscribe((data) => {
+        console.log('data', data); // vérification de l'opération => retour collegue modifié si ok
+        this.refreshListeCollegues(); // update fiche collegue
+      });
+
   }
 
   listerVotes(): Observable<Vote[]> {

@@ -1,23 +1,68 @@
-<h1>Formulaire piloté par le template</h1>
+<div class="container-fluid p-3 m-3 border border-2 bg-light">
+  <h3>Formulaire piloté par le template</h3>
 
-<form #formCollegue="ngForm" appNomPrenomValidator >
-
-    Pseudo<input type="text" appPseudoValidator [(ngModel)]="newCollegue.pseudo" name="pseudo" #pseudo="ngModel" id="" required>
-    <div *ngIf="pseudo.dirty && pseudo.invalid">Pseudo requis</div>
-    <div *ngIf="pseudo?.errors?.['pseudoExists']">
-        Erreur: Le pseudo "{{newCollegue.pseudo}}" est déjà utilisé
+  <form #formCollegue="ngForm" class="row g-3 text-start was-validated" appNomPrenomValidator>
+    <!-- pseudo -->
+    <div class="col-3">
+      <label for="pseudo" class="form-lablel">Pseudo</label>
+      <input type="text" [(ngModel)]="newCollegue.pseudo" class="form-control" name="pseudo" #pseudo="ngModel"
+        id="pseudo" placeholder="Votre pseudo" appPseudoValidator required />
+      <div *ngIf="pseudo.dirty && !pseudo?.errors?.['pseudoExists']">
+        Pseudo valide
+      </div>
+      <div class="invalid-feedback">Entrez un pseudo</div>
+      <div *ngIf="pseudo?.errors?.['pseudoExists']" class="text-danger">
+        Le pseudo "{{ newCollegue.pseudo }}" est déjà utilisé
+      </div>
     </div>
 
-    Nom<input type="text" [(ngModel)]="newCollegue.nom" name="nom" id="" #nom="ngModel" required minlength="2">
-    <div *ngIf="nom.dirty && nom.invalid">Le nom doit avoir au moins 2 caractères</div>
+    <!-- nom -->
+    <div class="col-3">
+      <label for="fname" class="form-lablel">Nom</label>
+      <input type="text" [(ngModel)]="newCollegue.nom" class="form-control" name="nom" #nom="ngModel" id="fname"
+        placeholder="Votre nom" required minlength="2" />
+      <div class="valid-feedback">Nom valide</div>
+      <div class="invalid-feedback">Entrez un nom</div>
+      <div *ngIf="nom.dirty && nom.invalid" class="text-danger">
+        Le nom doit avoir au moins 2 caractères
+      </div>
+      <div *ngIf="formCollegue.errors && nom.dirty" class="text-danger">
+        Nom et prénom identiques
+      </div>
+    </div>
 
-    Prenom<input type="text" [(ngModel)]="newCollegue.prenom" name="prenom" #prenom="ngModel" id="" required  minlength="2">
-    <div *ngIf="prenom.dirty && prenom.invalid">Le prénom doit avoir au moins 2 caractères</div>
+    <!-- prenom -->
+    <div class="col-3">
+      <label for="lname" class="form-lablel">Prénom</label>
+      <input type="text" [(ngModel)]="newCollegue.prenom" class="form-control" name="prenom" #prenom="ngModel"
+        id="lname" placeholder="Votre prénom" required minlength="2" />
+      <div class="valid-feedback">Prénom valide</div>
+      <div class="invalid-feedback">Entrez un prénom</div>
+      <div *ngIf="prenom.dirty && prenom.invalid" class="text-danger">
+        Le prénom doit avoir au moins 2 caractères
+      </div>
+      <div *ngIf="formCollegue.errors && nom.dirty" class="text-danger">
+        Nom et prénom identiques
+      </div>
+    </div>
 
-    Photo url<input type="text" [(ngModel)]="newCollegue.photo" name="photo" #photo="ngModel" id="" required >
-    <div *ngIf="photo.dirty && photo.invalid">URL photo requise</div>
-    
-    <div *ngIf="formCollegue.errors && nom.dirty">Erreur: nom et prénom identiques</div>
+    <!-- photo -->
+    <div class="col-3">
+      <label for="urlPhoto" class="form-lablel">Photo</label>
+      <input type="text" [(ngModel)]="newCollegue.photo" class="form-control" name="photo" #photo="ngModel"
+        id="urlPhoto" placeholder="URL de votre photo" required />
+      <div class="valid-feedback">Url photo valide</div>
+      <div class="invalid-feedback">Entrez une url pour la photo</div>
+      <div *ngIf="photo.dirty && photo.invalid" class="text-danger">
+        URL photo requise
+      </div>
+    </div>
 
-    <button [disabled]="formCollegue.invalid" (click)="submit()" >Ajouter</button>
-</form>
+    <!-- button -->
+    <div class="col-12">
+      <button [disabled]="formCollegue.invalid" class="btn btn-primary" (click)="submit()">
+        Ajouter
+      </button>
+    </div>
+  </form>
+</div>

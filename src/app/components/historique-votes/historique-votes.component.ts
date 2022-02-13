@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class HistoriqueVotesComponent implements OnInit {
   votes: Vote[] = [];
 
-  constructor(private dataSrv: DataService) {}
+  constructor(private dataSrv: DataService) { }
 
   ngOnInit(): void {
     this.listerVotes();
@@ -18,9 +18,7 @@ export class HistoriqueVotesComponent implements OnInit {
 
   listerVotes() {
     this.dataSrv.listerVotes().subscribe((data) => {
-      console.log('data', data);
       this.votes = data;
-      console.log('votes', this.votes);
     });
   }
 

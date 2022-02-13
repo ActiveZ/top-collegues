@@ -10,12 +10,12 @@ import { DataService } from 'src/app/services/data.service';
 export class NouveauCollegueTemplateFormComponent implements OnInit {
   newCollegue: Partial<Collegue> = {}
 
-  constructor(private dataSrv:DataService) {}
+  constructor(private dataSrv: DataService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   submit() {
     this.dataSrv.postCollegue(this.newCollegue)
-    .subscribe(data=>console.log(data));
+      .subscribe(data => console.log(data));
   }
 }
