@@ -14,6 +14,6 @@ export class AccueilComponent implements OnInit {
   }
 
   refresh() {
-    this.dataSrv.getCollegues();
+    this.dataSrv.refreshListeCollegues();
   }
 }

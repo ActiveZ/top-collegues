@@ -1,5 +1,9 @@
-<div class="row row-cols-3">
-  <div *ngFor="let c of collegues">
-    <app-collegue [collegue]="c" class="col"></app-collegue>
+<ng-container *ngIf="collegues | async as listeCollegues; else loading">
+  <div class="row row-cols-3">
+    <app-collegue *ngFor="let c of listeCollegues" [collegue]="c" class="col"></app-collegue>
   </div>
-</div>
+</ng-container>
+
+<ng-template #loading>
+  <p>Chargement...</p>
+</ng-template>

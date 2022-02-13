@@ -1,15 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { avis, Collegue, Vote } from '../models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  public collegues$ = new Subject<Collegue[]>(); // flux du tableau des collegues
+
   private url = 'https://formation-angular-collegues.herokuapp.com/api/v1';
 
   constructor(private http: HttpClient) {}
+
+  ///////////// FLUX SUBJECT COLLEGUES ///////////////////
+
+  refreshListeCollegues() {
+    this.getCollegues()
+      .subscribe(
+        data => this.collegues$.next(data)
+      );
+  }
+
+  /////////////////// API //////////////////////
 
   getCollegues(): Observable<Collegue[]> {
     return this.http.get<Collegue[]>(this.url + '/collegues');

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Collegue } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
 
@@ -8,18 +9,14 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./liste-collegues.component.scss'],
 })
 export class ListeColleguesComponent implements OnInit {
-
-  // tableau des collegues
-  collegues: Collegue[] = [];
+  collegues?: Observable<Collegue[]>;
 
   constructor(private dataSrv: DataService) {}
 
   ngOnInit(): void {
-    // création d'un tableau de collègues au démarrage
-    this.getCollegues();
-  }
-
-  getCollegues() {
-    this.dataSrv.getCollegues().subscribe((data) => (this.collegues = data));
+    // abonnement au flux
+    this.collegues = this.dataSrv.collegues$.asObservable();
+    // chargement de la liste
+    this.dataSrv.refreshListeCollegues();
   }
 }
