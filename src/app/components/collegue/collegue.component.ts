@@ -24,5 +24,6 @@ export class CollegueComponent implements OnInit {
     this.dataSrv.postVote(this.collegue.pseudo, monAvis)
     this.btAimerDisabled = this.collegue.score >= 1000;
     this.btDetesterDisabled = this.collegue.score <= -1000;
+    this.dataSrv.refreshListeCollegues(); // pourquoi marche pas ????
   }
 }
