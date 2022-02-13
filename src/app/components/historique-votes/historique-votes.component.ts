@@ -24,5 +24,7 @@ export class HistoriqueVotesComponent implements OnInit {
     });
   }
 
-  deleteVote() {}
+  deleteVote(e: HTMLElement) {
+    e.remove();
+  }
 }

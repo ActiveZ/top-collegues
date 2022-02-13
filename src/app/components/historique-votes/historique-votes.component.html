@@ -1,11 +1,14 @@
-<div *ngFor="let v of votes" class="row p-2 m-2 border border-1">
+<div *ngFor="let v of votes" class="row p-2 m-2 border border-1 bg-info" #myRow>
   <div class="col-1">
     <img src="{{ v.collegue.photo }}" alt="photo_collegue" />
   </div>
   <div class="col text-start">
-    <p>{{ v.collegue.pseudo }}</p>
-    <p>{{ v.collegue.pseudo }} a désormais un score de {{ v.score }}</p>
-    <button type="button" class="btn btn-danger" (click)="deleteVote()">
+    <p>
+      {{ v.collegue.pseudo }} a désormais un score de {{ v.score }}
+      <span *ngIf="v.score > 0" style="font-size: 30px">&#9786;</span>
+      <span *ngIf="v.score < 0" style="font-size: 30px">&#9785;</span>
+    </p>
+    <button type="button" class="btn btn-danger" (click)="deleteVote(myRow)">
       supprimer
     </button>
   </div>
