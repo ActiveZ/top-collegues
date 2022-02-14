@@ -1,19 +1,12 @@
-<div class="card my-3 bg-dark">
+<div class="card my-3 bg-dark" >
   <h5 class="card-title text-light">pseudo: {{ collegue.pseudo | uppercase }}</h5>
-  <div class="text-center ">
-    <img
-      class="card-img-top mb-3 w-auto"
-      src="{{ collegue.photo }}"
-      alt="photo_collegue"
-    />
+  <div class="text-center" routerLink="/collegue/{{ collegue.pseudo }}">
+    <img class="card-img-top mb-3 w-auto" src="{{ collegue.photo }}" alt="photo_collegue" />
   </div>
   <div class="card-body">
     <p class="card-text text-light">score: {{ collegue.score | score }}</p>
 
-    <app-avis
-      (changeScore)="onChangeScore($event)"
-      [btAimerDisabled]="btAimerDisabled"
-      [btDetesterDisabled]="btDetesterDisabled"
-    ></app-avis>
+    <app-avis (changeScore)="onChangeScore($event)" [btAimerDisabled]="btAimerDisabled"
+      [btDetesterDisabled]="btDetesterDisabled"></app-avis>
   </div>
 </div>

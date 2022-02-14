@@ -1,7 +1,7 @@
 <div class="container-fluid p-3 m-3 border border-2 bg-light">
   <h3>Formulaire piloté par le template</h3>
 
-  <form #formCollegue="ngForm" class="row g-3 text-start was-validated" appNomPrenomValidator>
+  <form #formCollegue="ngForm" class="row g-3 text-start" appNomPrenomValidator>
     <!-- pseudo -->
     <div class="col-3">
       <label for="pseudo" class="form-lablel">Pseudo</label>
@@ -60,9 +60,17 @@
 
     <!-- button -->
     <div class="col-12">
-      <button [disabled]="formCollegue.invalid" class="btn btn-primary" (click)="submit()">
+      <button [disabled]="formCollegue.invalid" class="btn btn-primary" (click)="submit(formCollegue)">
         Ajouter
       </button>
     </div>
   </form>
+
+  <!-- résultat du submit -->
+  <div *ngIf="msgOk" class="bg-success">
+    {{msgOk}}
+  </div>
+  <div *ngIf="msgErreur" class="bg-danger">
+    {{msgErreur}}
+  </div>
 </div>

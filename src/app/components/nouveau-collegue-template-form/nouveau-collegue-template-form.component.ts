@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Collegue } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
 
@@ -9,13 +11,39 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class NouveauCollegueTemplateFormComponent implements OnInit {
   newCollegue: Partial<Collegue> = {}
+  msgErreur?: string;
+  msgOk?: string;
 
-  constructor(private dataSrv: DataService) { }
+  constructor(private dataSrv: DataService, private router: Router) { }
 
   ngOnInit(): void { }
 
-  submit() {
+  submit(formCollegue: NgForm) { // pour form reset
+    this.msgOk = undefined;
+    this.msgErreur = undefined;
+
     this.dataSrv.postCollegue(this.newCollegue)
-      .subscribe(data => console.log(data));
+      .subscribe({
+        next: data => {
+          console.log(data);
+          this.msgOk = 'Collegue créé avec succès !';
+          this.newCollegue = {};
+          formCollegue.reset() // réinitialiser les informations de validation, utile ?
+          this.router.navigate(['accueil'])
+        },
+        error: () => this.msgErreur = 'Ooops, erreur back'
+      });
+
+
+    //   this.dataSrv.postCollegue(this.newCollegue)
+    //     .subscribe({
+    //       next: data => {
+    //         console.log(data)
+    //         this.msgOk = 'Collegue créé';
+    //         formCollegue.reset() // réinitialiser les informations de validation, utile ?
+    //         this.newCollegue = {};
+    //       },
+    //       error: () => this.msgErreur = 'Ooops, erreur back'
+    //     });
   }
 }
