@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map, Observable, switchMap } from 'rxjs';
 import { Collegue } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
 
@@ -11,25 +10,9 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class DetailCollegueComponent implements OnInit {
 
-  collegue: Collegue = {
-    photo: "",
-    prenom: "",
-    pseudo: "",
-    nom: "",
-    score: 0
-  }
-  // collegueObs: Observable<Collegue>
-  
-  constructor(private dataSrv: DataService, private route: ActivatedRoute) {
-    // this.collegueObs = route.paramMap.pipe(
-    //   map(paramMap => paramMap.get("pseudo")),
-    //   switchMap(pseudo => {
-    //     if (pseudo)
-    //       return dataSrv.getCollegueByPseudo(pseudo)
-    //   })
-    // )
-  }
+  collegue?: Collegue
 
+  constructor(private dataSrv: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap
@@ -42,7 +25,5 @@ export class DetailCollegueComponent implements OnInit {
             })
         }
       })
-
   }
-
 }

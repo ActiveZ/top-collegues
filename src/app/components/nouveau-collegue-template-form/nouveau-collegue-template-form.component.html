@@ -1,17 +1,16 @@
 <div class="container-fluid p-3 m-3 border border-2 bg-light">
   <h3>Formulaire piloté par le template</h3>
 
-  <form #formCollegue="ngForm" class="row g-3 text-start" appNomPrenomValidator>
+  <form #formCollegue="ngForm" class="row g-3 text-start was-validated" appNomPrenomValidator>
+
     <!-- pseudo -->
-    <div class="col-3">
+    <div class="col-3 ">
       <label for="pseudo" class="form-lablel">Pseudo</label>
       <input type="text" [(ngModel)]="newCollegue.pseudo" class="form-control" name="pseudo" #pseudo="ngModel"
         id="pseudo" placeholder="Votre pseudo" appPseudoValidator required />
-      <div *ngIf="pseudo.dirty && !pseudo?.errors?.['pseudoExists']">
-        Pseudo valide
-      </div>
+      <div *ngIf="pseudo.dirty && !pseudo?.errors?.['pseudoExists']" class="valid-feedback"> Pseudo valide</div>
       <div class="invalid-feedback">Entrez un pseudo</div>
-      <div *ngIf="pseudo?.errors?.['pseudoExists']" class="text-danger">
+      <div *ngIf="pseudo?.errors?.['pseudoExists']" class="invalid-custom">
         Le pseudo "{{ newCollegue.pseudo }}" est déjà utilisé
       </div>
     </div>
@@ -21,12 +20,12 @@
       <label for="fname" class="form-lablel">Nom</label>
       <input type="text" [(ngModel)]="newCollegue.nom" class="form-control" name="nom" #nom="ngModel" id="fname"
         placeholder="Votre nom" required minlength="2" />
-      <div class="valid-feedback">Nom valide</div>
+      <div *ngIf="!formCollegue.errors && nom.dirty" class="valid-feedback">Nom valide</div>
       <div class="invalid-feedback">Entrez un nom</div>
-      <div *ngIf="nom.dirty && nom.invalid" class="text-danger">
+      <div *ngIf="nom.dirty && nom.invalid" class="invalid-custom">
         Le nom doit avoir au moins 2 caractères
       </div>
-      <div *ngIf="formCollegue.errors && nom.dirty" class="text-danger">
+      <div *ngIf="formCollegue.errors && nom.dirty" class="invalid-custom">
         Nom et prénom identiques
       </div>
     </div>
@@ -36,12 +35,12 @@
       <label for="lname" class="form-lablel">Prénom</label>
       <input type="text" [(ngModel)]="newCollegue.prenom" class="form-control" name="prenom" #prenom="ngModel"
         id="lname" placeholder="Votre prénom" required minlength="2" />
-      <div class="valid-feedback">Prénom valide</div>
+      <div *ngIf="!formCollegue.errors && prenom.dirty" class="valid-feedback">Prénom valide</div>
       <div class="invalid-feedback">Entrez un prénom</div>
-      <div *ngIf="prenom.dirty && prenom.invalid" class="text-danger">
+      <div *ngIf="prenom.dirty && prenom.invalid" class="invalid-custom">
         Le prénom doit avoir au moins 2 caractères
       </div>
-      <div *ngIf="formCollegue.errors && nom.dirty" class="text-danger">
+      <div *ngIf="formCollegue.errors && prenom.dirty" class="invalid-custom">
         Nom et prénom identiques
       </div>
     </div>
@@ -51,11 +50,8 @@
       <label for="urlPhoto" class="form-lablel">Photo</label>
       <input type="text" [(ngModel)]="newCollegue.photo" class="form-control" name="photo" #photo="ngModel"
         id="urlPhoto" placeholder="URL de votre photo" required />
-      <div class="valid-feedback">Url photo valide</div>
+      <div *ngIf="photo.valid" class="valid-feedback">Url photo valide</div>
       <div class="invalid-feedback">Entrez une url pour la photo</div>
-      <div *ngIf="photo.dirty && photo.invalid" class="text-danger">
-        URL photo requise
-      </div>
     </div>
 
     <!-- button -->
@@ -67,10 +63,8 @@
   </form>
 
   <!-- résultat du submit -->
-  <div *ngIf="msgOk" class="bg-success">
-    {{msgOk}}
-  </div>
-  <div *ngIf="msgErreur" class="bg-danger">
-    {{msgErreur}}
+  <div class="m-2 p-2">
+    <div *ngIf="msgOk" class="bg-success"> {{msgOk}}</div>
+    <div *ngIf="msgErreur" class="bg-danger"> {{msgErreur}}</div>
   </div>
 </div>

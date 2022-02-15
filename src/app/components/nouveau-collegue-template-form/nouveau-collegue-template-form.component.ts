@@ -33,17 +33,5 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
         },
         error: () => this.msgErreur = 'Ooops, erreur back'
       });
-
-
-    //   this.dataSrv.postCollegue(this.newCollegue)
-    //     .subscribe({
-    //       next: data => {
-    //         console.log(data)
-    //         this.msgOk = 'Collegue créé';
-    //         formCollegue.reset() // réinitialiser les informations de validation, utile ?
-    //         this.newCollegue = {};
-    //       },
-    //       error: () => this.msgErreur = 'Ooops, erreur back'
-    //     });
   }
 }

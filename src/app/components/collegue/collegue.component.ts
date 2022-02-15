@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { avis, Collegue } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
 
@@ -14,7 +13,7 @@ export class CollegueComponent implements OnInit {
   btAimerDisabled: boolean = false;
   btDetesterDisabled: boolean = false;
 
-  constructor(private dataSrv: DataService, private router: Router) { }
+  constructor(private dataSrv: DataService) { }
 
   ngOnInit(): void {
     this.btAimerDisabled = this.collegue.score >= 1000;
