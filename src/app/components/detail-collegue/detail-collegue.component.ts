@@ -8,7 +8,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './detail-collegue.component.html',
   styleUrls: ['./detail-collegue.component.scss']
 })
-export class DetailCollegueComponent implements OnInit {
+export class DetailCollegueComponent {
 
   collegue?: Collegue
 
@@ -17,9 +17,9 @@ export class DetailCollegueComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap
       .subscribe((params: ParamMap) => {
-        const pseudo = params.get('pseudo')
-        if (pseudo) {
-          this.dataSrv.getCollegueByPseudo(pseudo)
+        const id = params.get('id')
+        if (id) {
+          this.dataSrv.getCollegueById(id)
             .subscribe(data => {
               this.collegue = data
               console.log("collegue details", this.collegue);

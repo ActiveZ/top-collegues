@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'form-template', component: NouveauCollegueTemplateFormComponent },
   { path: 'form-reactive', component: NouveauCollegueReactiveFormComponent },
-  { path: 'collegue/:pseudo', component: DetailCollegueComponent }
+  { path: 'collegue/:id', component: DetailCollegueComponent }
 ]
 
 @NgModule({

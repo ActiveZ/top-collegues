@@ -20,26 +20,27 @@ import { DataService } from '../services/data.service';
   ],
 })
 export class PseudoValidatorDirective implements AsyncValidator {
-  constructor(private dataSrv: DataService) { }
+  constructor(private dataSrv: DataService) {}
 
-  validate(control: AbstractControl):Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    return this.dataSrv
-      .getCollegueByPseudo(control.value)
-      .pipe(map((x:Collegue) =>{
-        return x ? { pseudoExists: true } : null
-      }
-      ));
+  validate(
+    control: AbstractControl
+  ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+    return this.dataSrv.getCollegueById(control.value).pipe(
+      map((c: Collegue) => {
+        return c ? { pseudoExists: true } : null;
+      })
+    );
 
-  // validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-  //   // if (!control.value) return of(null) // retourne observable de null si controle vide (facultatif ?)
+    // validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+    //   // if (!control.value) return of(null) // retourne observable de null si controle vide (facultatif ?)
 
-  //   return this.dataSrv
-  //     .getCollegueByPseudo(control.value)
-  //     .pipe(
-  //       tap(data => console.log(data)), // pour voir le résultat sans le transformer
-  //       map((x: Collegue) => x ? { pseudoExists: true } : null), // retourne objet si pseudo trouvé (x: collegue est facultatif ()=> { pseudoExists: true } )
-  //       tap(data => console.log(data)), // pour voir le résultat sans le transformer
-  //       // catchError(() => of(null)) // retourne null si erreur déclenché par pseudo non trouvé
-  //     );
+    //   return this.dataSrv
+    //     .getCollegueByPseudo(control.value)
+    //     .pipe(
+    //       tap(data => console.log(data)), // pour voir le résultat sans le transformer
+    //       map((x: Collegue) => x ? { pseudoExists: true } : null), // retourne objet si pseudo trouvé (x: collegue est facultatif ()=> { pseudoExists: true } )
+    //       tap(data => console.log(data)), // pour voir le résultat sans le transformer
+    //       // catchError(() => of(null)) // retourne null si erreur déclenché par pseudo non trouvé
+    //     );
   }
 }

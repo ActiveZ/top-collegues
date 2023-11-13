@@ -40,5 +40,22 @@
       "photo": "https://randomuser.me/api/portraits/men/1.jpg",
       "score": 0
     }
+  ],
+  "votes": [
+    {
+      "avis": "AIMER",
+      "pseudo": "redgorilla949",
+      "id": 1
+    },
+    {
+      "avis": "AIMER",
+      "pseudo": "redgorilla949",
+      "id": 2
+    },
+    {
+      "avis": "AIMER",
+      "pseudo": "redgorilla949",
+      "id": 3
+    }
   ]
 }

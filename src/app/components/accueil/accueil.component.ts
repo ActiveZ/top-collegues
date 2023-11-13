@@ -7,14 +7,14 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.scss'],
 })
-export class AccueilComponent implements OnInit {
+export class AccueilComponent {
   constructor(private dataSrv: DataService) {}
 
-  ngOnInit(): void {
-    this.dataSrv.getRandomUser().subscribe((userList: Collegue[]) => {
-      console.log('randomUserList:', userList);
-    });
-  }
+  // ngOnInit(): void {
+  //   this.dataSrv.getRandomUser().subscribe((userList: Collegue[]) => {
+  //     console.log('randomUserList:', userList);
+  //   });
+  // }
 
   refresh() {
     this.dataSrv.refreshListeCollegues();

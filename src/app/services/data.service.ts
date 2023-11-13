@@ -49,8 +49,8 @@ export class DataService {
     return this.http.get<Vote[]>(this.url + '/votes');
   }
 
-  getCollegueByPseudo(pseudo: string): Observable<Collegue> {
-    return this.http.get<Collegue>(this.url + '/collegues?pseudo=' + pseudo);
+  getCollegueById(id: string): Observable<Collegue> {
+    return this.http.get<Collegue>(this.url + '/collegues/' + id);
   }
 
   ////////////// API RANDOM USER //////////////////
