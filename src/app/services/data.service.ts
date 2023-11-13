@@ -8,7 +8,7 @@ import { Collegue, Vote, avis, randomUser } from '../models';
 })
 export class DataService {
   // private url = 'https://formation-angular-collegues.herokuapp.com/api/v1';
-  private url = ' http://localhost:3000/collegues';
+  private url = ' http://localhost:3000';
   
   private randomUserUrl =
   'https://randomuser.me/api/?inc=name,login,picture&nat=fr&password=upper,lower,number,special,8&results=5&noinfo';
@@ -26,8 +26,8 @@ export class DataService {
   /////////////////// API //////////////////////
 
   getCollegues(): Observable<Collegue[]> {
-    // return this.http.get<Collegue[]>(this.url + '/collegues');
-    return this.getRandomUser();
+    return this.http.get<Collegue[]>(this.url + '/collegues');
+    // return this.getRandomUser();
   }
 
   postCollegue(collegue: Partial<Collegue>): Observable<Collegue> {
@@ -50,7 +50,7 @@ export class DataService {
   }
 
   getCollegueByPseudo(pseudo: string): Observable<Collegue> {
-    return this.http.get<Collegue>(this.url + '/collegues/' + pseudo);
+    return this.http.get<Collegue>(this.url + '/collegues?pseudo=' + pseudo);
   }
 
   ////////////// API RANDOM USER //////////////////

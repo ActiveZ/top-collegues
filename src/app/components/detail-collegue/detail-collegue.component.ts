@@ -22,6 +22,7 @@ export class DetailCollegueComponent implements OnInit {
           this.dataSrv.getCollegueByPseudo(pseudo)
             .subscribe(data => {
               this.collegue = data
+              console.log("collegue details", this.collegue);
             })
         }
       })
