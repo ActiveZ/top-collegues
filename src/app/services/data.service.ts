@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, map } from 'rxjs';
-import { avis, Collegue, randomUser, Vote } from '../models';
+import { Collegue, Vote, avis, randomUser } from '../models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  public collegues$ = new Subject<Collegue[]>(); // flux du tableau des collegues
-
-  private url = 'https://formation-angular-collegues.herokuapp.com/api/v1';
+  // private url = 'https://formation-angular-collegues.herokuapp.com/api/v1';
+  private url = ' http://localhost:3000/collegues';
+  
   private randomUserUrl =
-    'https://randomuser.me/api/?inc=name,login,picture&nat=fr&password=upper,lower,number,special,8&results=5&noinfo';
+  'https://randomuser.me/api/?inc=name,login,picture&nat=fr&password=upper,lower,number,special,8&results=5&noinfo';
+  
+  public collegues$ = new Subject<Collegue[]>(); // flux du tableau des collegues
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +26,8 @@ export class DataService {
   /////////////////// API //////////////////////
 
   getCollegues(): Observable<Collegue[]> {
-    return this.http.get<Collegue[]>(this.url + '/collegues');
+    // return this.http.get<Collegue[]>(this.url + '/collegues');
+    return this.getRandomUser();
   }
 
   postCollegue(collegue: Partial<Collegue>): Observable<Collegue> {
@@ -51,11 +54,21 @@ export class DataService {
   }
 
   ////////////// API RANDOM USER //////////////////
-  getRandomUser(): Observable<randomUser[]> {
+
+  getRandomUser(): Observable<Collegue[]> {
     return this.http.get<{ results: randomUser[] }>(this.randomUserUrl).pipe(
-      map((data) => {
-        return data.results;
-      })
+      map((data) =>
+        data.results.map((person: randomUser) => {
+          return {
+            id: person.login.uuid,
+            prenom: person.name.first,
+            nom: person.name.last,
+            pseudo: person.login.username,
+            photo: person.picture.large,
+            score: 0,
+          };
+        })
+      )
     );
   }
 }

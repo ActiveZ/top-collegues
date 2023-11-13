@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { randomUser } from 'src/app/models';
+import { Collegue, randomUser } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class AccueilComponent implements OnInit {
   constructor(private dataSrv: DataService) {}
 
   ngOnInit(): void {
-    this.dataSrv.getRandomUser().subscribe((userList: randomUser[]) => {
+    this.dataSrv.getRandomUser().subscribe((userList: Collegue[]) => {
       console.log('randomUserList:', userList);
     });
   }

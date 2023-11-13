@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build --base-href=https://activez.github.io/top-collegues/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "server": "json-server --watch db_collegues.json"
   },
   "private": true,
   "dependencies": {
