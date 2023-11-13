@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { avis, Collegue } from 'src/app/models';
+import { Avis, Collegue } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './collegue.component.html',
   styleUrls: ['./collegue.component.scss'],
 })
-export class CollegueComponent implements OnInit {
+export class CollegueComponent {
   @Input() collegue!: Collegue;
 
   btAimerDisabled: boolean = false;
@@ -20,8 +20,8 @@ export class CollegueComponent implements OnInit {
     this.btDetesterDisabled = this.collegue.score <= -1000;
   }
 
-  onChangeScore(monAvis: avis) {
-    this.dataSrv.postVote(this.collegue.id, monAvis)
+  onChangeScore(monAvis: Avis) {
+    this.dataSrv.postVote(this.collegue.pseudo, monAvis)
     this.btAimerDisabled = this.collegue.score >= 1000;
     this.btDetesterDisabled = this.collegue.score <= -1000;
   }

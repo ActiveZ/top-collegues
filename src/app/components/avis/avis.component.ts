@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { avis, Collegue } from 'src/app/models';
+import { Avis, Collegue } from 'src/app/models';
 
 @Component({
   selector: 'app-avis',
@@ -11,17 +11,17 @@ export class AvisComponent implements OnInit {
   @Input() btAimerDisabled: boolean = false;
   @Input() btDetesterDisabled: boolean = false;
 
-  @Output() changeScore: EventEmitter<avis> = new EventEmitter<avis>();
+  @Output() changeScore: EventEmitter<Avis> = new EventEmitter<Avis>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onAimer() {
-    this.changeScore.emit(avis.AIME);
+    this.changeScore.emit(Avis.AIME);
   }
 
   onDetester() {
-    this.changeScore.emit(avis.DETESTE);
+    this.changeScore.emit(Avis.DETESTE);
   }
 }

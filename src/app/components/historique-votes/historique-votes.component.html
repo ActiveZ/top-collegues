@@ -5,8 +5,8 @@
   <div class="col text-start">
     <p>
       {{ v.collegue.pseudo }} a désormais un score de {{ v.score }}
-      <span *ngIf="v.score > 0" style="font-size: 30px">&#9786;</span>
-      <span *ngIf="v.score < 0" style="font-size: 30px">&#9785;</span>
+      <span *ngIf="v.collegue.score" style="font-size: 30px">&#9786;</span>
+      <span *ngIf="v.collegue.score" style="font-size: 30px">&#9785;</span>
     </p>
     <button type="button" class="btn btn-danger" (click)="deleteVote(myRow)">
       supprimer

@@ -19,6 +19,7 @@ export class HistoriqueVotesComponent implements OnInit {
   listerVotes() {
     this.dataSrv.listerVotes().subscribe((data) => {
       this.votes = data;
+      console.log('votes', this.votes);
     });
   }
 

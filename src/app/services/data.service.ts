@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, map } from 'rxjs';
-import { Collegue, Vote, avis, randomUser } from '../models';
+import { Collegue, Vote, Avis, randomUser } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -34,10 +34,10 @@ export class DataService {
     return this.http.post<Collegue>(this.url + '/collegues', collegue);
   }
 
-  postVote(id: string, avis: avis) {
+  postVote(pseudo: string, avis: Avis) {
     const body = {
       avis: avis,
-      id_collegue: id,
+      pseudo: pseudo,
     };
     this.http.post(this.url + '/votes', body).subscribe((data) => {
       console.log('data', data); // vérification de l'opération => retour collegue modifié si ok

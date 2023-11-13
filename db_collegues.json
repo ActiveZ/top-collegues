@@ -41,5 +41,31 @@
       "score": 0
     }
   ],
-  "votes": []
+  "votes": [
+    {
+      "avis": "AIMER",
+      "pseudo": "redgorilla949",
+      "id": 1
+    },
+    {
+      "avis": "DETESTER",
+      "pseudo": "redgorilla949",
+      "id": 2
+    },
+    {
+      "avis": "AIMER",
+      "pseudo": "redgorilla949",
+      "id": 3
+    },
+    {
+      "avis": "AIMER",
+      "pseudo": "redgorilla949",
+      "id": 4
+    },
+    {
+      "avis": "AIMER",
+      "pseudo": "redgorilla949",
+      "id": 5
+    }
+  ]
 }

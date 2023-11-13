@@ -7,7 +7,7 @@ export interface Collegue {
   score: number;
 }
 
-export enum avis {
+export enum Avis {
   AIME = 'AIMER',
   DETESTE = 'DETESTER',
 }
@@ -56,7 +56,7 @@ export interface randomUser {
 
 export interface Vote {
   collegue: Collegue;
-  avis: avis;
+  avis: Avis;
   score: Number;
   dateCreation: Date;
 }
