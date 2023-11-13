@@ -34,10 +34,10 @@ export class DataService {
     return this.http.post<Collegue>(this.url + '/collegues', collegue);
   }
 
-  postVote(pseudo: string, avis: avis) {
+  postVote(id: string, avis: avis) {
     const body = {
       avis: avis,
-      pseudo: pseudo,
+      id_collegue: id,
     };
     this.http.post(this.url + '/votes', body).subscribe((data) => {
       console.log('data', data); // vérification de l'opération => retour collegue modifié si ok
