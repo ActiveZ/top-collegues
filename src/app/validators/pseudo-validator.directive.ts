@@ -5,7 +5,7 @@ import {
   NG_ASYNC_VALIDATORS,
   ValidationErrors,
 } from '@angular/forms';
-import { catchError, map, Observable, of, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Collegue } from '../models';
 import { DataService } from '../services/data.service';
 
@@ -26,8 +26,8 @@ export class PseudoValidatorDirective implements AsyncValidator {
     control: AbstractControl
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     return this.dataSrv.getCollegueByPseudo(control.value).pipe(
-      map((c: Collegue) => {
-        return c ? { pseudoExists: true } : null;
+      map((c: Collegue[]) => {
+        return c.length ? { pseudoExists: true } : null;
       })
     );
 

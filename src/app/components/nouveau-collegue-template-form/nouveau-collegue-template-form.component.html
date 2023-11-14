@@ -7,7 +7,7 @@
     <div class="col-3 ">
       <label for="pseudo" class="form-lablel">Pseudo</label>
       <input type="text" [(ngModel)]="newCollegue.pseudo" class="form-control" name="pseudo" #pseudo="ngModel"
-        id="pseudo" placeholder="Votre pseudo" appPseudoValidator required />
+        id="pseudo" placeholder="Votre pseudo" appPseudoValidator required/>
       <div *ngIf="pseudo.dirty && !pseudo?.errors?.['pseudoExists']" class="valid-feedback"> Pseudo valide</div>
       <div class="invalid-feedback">Entrez un pseudo</div>
       <div *ngIf="pseudo?.errors?.['pseudoExists']" class="invalid-custom">

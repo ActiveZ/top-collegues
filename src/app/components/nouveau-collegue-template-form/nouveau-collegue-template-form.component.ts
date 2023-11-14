@@ -9,6 +9,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './nouveau-collegue-template-form.component.html',
   styleUrls: ['./nouveau-collegue-template-form.component.scss'],
 })
+
 export class NouveauCollegueTemplateFormComponent {
   newCollegue: Partial<Collegue> = {};
   msgErreur?: string;

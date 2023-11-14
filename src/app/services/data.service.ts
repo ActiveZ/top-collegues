@@ -49,9 +49,10 @@ export class DataService {
   getCollegueById(id: string): Observable<Collegue> {
     return this.http.get<Collegue>(this.url + '/collegues/' + id);
   }
-
-  getCollegueByPseudo(pseudo: string): Observable<Collegue> {
-    return this.http.get<Collegue>(this.url + '/collegues?pseudo=' + pseudo.toLowerCase());
+  
+  // pour validator async pseudo exist
+  getCollegueByPseudo(pseudo: string): Observable<Collegue[]> {
+    return this.http.get<Collegue[]>(this.url + '/collegues?pseudo=' + pseudo.toLowerCase());
   }
 
   ////////////// API RANDOM USER: cf fichier generate-db.js pour node //////////////////
