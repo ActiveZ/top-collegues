@@ -27,6 +27,7 @@ export class DataService {
 
   postCollegue(collegue: Partial<Collegue>): Observable<Collegue> {
     collegue.score = 0;
+    collegue.pseudo = collegue.pseudo?.toLowerCase(); // pour validator pseudo exist
     return this.http.post<Collegue>(this.url + '/collegues', collegue);
   }
 
@@ -52,7 +53,7 @@ export class DataService {
   getCollegueByPseudo(pseudo: string): Observable<Collegue> {
     console.log("pseudo", pseudo);
     
-    return this.http.get<Collegue>(this.url + '/collegues/' + pseudo);
+    return this.http.get<Collegue>(this.url + '/collegues?pseudo=' + pseudo.toLowerCase());
   }
 
   ////////////// API RANDOM USER: cf fichier generate-db.js pour node //////////////////
