@@ -1,71 +1,45 @@
 {
   "collegues": [
     {
-      "id": "ffb69d0c-153d-4d07-9db0-fe9dccb6fa23",
-      "prenom": "Tristan",
-      "nom": "Simon",
-      "pseudo": "redgorilla949",
-      "photo": "https://randomuser.me/api/portraits/men/24.jpg",
+      "id": "0fb510fd-8b7e-4b26-9a33-75e02a279573",
+      "prenom": "Alyssia",
+      "nom": "Sanchez",
+      "pseudo": "lazymouse429",
+      "photo": "https://randomuser.me/api/portraits/women/30.jpg",
       "score": 0
     },
     {
-      "id": "dda328dd-666b-4e58-ac85-d0a5bc1f73ef",
-      "prenom": "Lilly",
-      "nom": "Francois",
-      "pseudo": "heavykoala470",
-      "photo": "https://randomuser.me/api/portraits/women/0.jpg",
+      "id": "6b96ecf9-9576-491a-8890-d09b9670bf90",
+      "prenom": "Alix",
+      "nom": "Riviere",
+      "pseudo": "angrydog625",
+      "photo": "https://randomuser.me/api/portraits/women/6.jpg",
       "score": 0
     },
     {
-      "id": "f6c8d2ae-7f77-4660-8613-7d05f1ed409b",
-      "prenom": "Anaïs",
-      "nom": "Picard",
-      "pseudo": "happyswan866",
-      "photo": "https://randomuser.me/api/portraits/women/69.jpg",
+      "id": "df32f582-3fa0-429c-b1e8-63ec13553eda",
+      "prenom": "Loïc",
+      "nom": "Chevalier",
+      "pseudo": "crazytiger155",
+      "photo": "https://randomuser.me/api/portraits/men/41.jpg",
       "score": 0
     },
     {
-      "id": "6b1d3747-92c5-41c8-9a1c-c220c9cea6dd",
-      "prenom": "Nolan",
-      "nom": "David",
-      "pseudo": "brownduck224",
-      "photo": "https://randomuser.me/api/portraits/men/42.jpg",
+      "id": "fb682f0f-6aeb-4663-88b1-f729c04224e0",
+      "prenom": "Eva",
+      "nom": "Berger",
+      "pseudo": "blackpanda455",
+      "photo": "https://randomuser.me/api/portraits/women/15.jpg",
       "score": 0
     },
     {
-      "id": "b98df809-0170-4099-91b5-4c28e4736248",
-      "prenom": "Soren",
-      "nom": "Bourgeois",
-      "pseudo": "blackbear989",
-      "photo": "https://randomuser.me/api/portraits/men/1.jpg",
+      "id": "6a961ae5-d5e6-4ab4-98e5-d50f82725580",
+      "prenom": "Rémi",
+      "nom": "Giraud",
+      "pseudo": "heavydog611",
+      "photo": "https://randomuser.me/api/portraits/men/64.jpg",
       "score": 0
     }
   ],
-  "votes": [
-    {
-      "avis": "AIMER",
-      "pseudo": "redgorilla949",
-      "id": 1
-    },
-    {
-      "avis": "DETESTER",
-      "pseudo": "redgorilla949",
-      "id": 2
-    },
-    {
-      "avis": "AIMER",
-      "pseudo": "redgorilla949",
-      "id": 3
-    },
-    {
-      "avis": "AIMER",
-      "pseudo": "redgorilla949",
-      "id": 4
-    },
-    {
-      "avis": "AIMER",
-      "pseudo": "redgorilla949",
-      "id": 5
-    }
-  ]
+  "votes": []
 }
