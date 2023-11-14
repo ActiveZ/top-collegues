@@ -49,6 +49,12 @@ export class DataService {
     return this.http.get<Collegue>(this.url + '/collegues/' + id);
   }
 
+  getCollegueByPseudo(pseudo: string): Observable<Collegue> {
+    console.log("pseudo", pseudo);
+    
+    return this.http.get<Collegue>(this.url + '/collegues/' + pseudo);
+  }
+
   ////////////// API RANDOM USER: cf fichier generate-db.js pour node //////////////////
   // private randomUserUrl =
   // 'https://randomuser.me/api/?inc=name,login,picture&nat=fr&password=upper,lower,number,special,8&results=5&noinfo';

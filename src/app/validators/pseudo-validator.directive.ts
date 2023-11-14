@@ -25,7 +25,7 @@ export class PseudoValidatorDirective implements AsyncValidator {
   validate(
     control: AbstractControl
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    return this.dataSrv.getCollegueById(control.value).pipe(
+    return this.dataSrv.getCollegueByPseudo(control.value).pipe(
       map((c: Collegue) => {
         return c ? { pseudoExists: true } : null;
       })
