@@ -51,8 +51,6 @@ export class DataService {
   }
 
   getCollegueByPseudo(pseudo: string): Observable<Collegue> {
-    console.log("pseudo", pseudo);
-    
     return this.http.get<Collegue>(this.url + '/collegues?pseudo=' + pseudo.toLowerCase());
   }
 
