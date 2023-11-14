@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Vote } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
 
@@ -7,10 +7,10 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './historique-votes.component.html',
   styleUrls: ['./historique-votes.component.scss'],
 })
-export class HistoriqueVotesComponent implements OnInit {
+export class HistoriqueVotesComponent {
   votes: Vote[] = [];
 
-  constructor(private dataSrv: DataService) { }
+  constructor(private dataSrv: DataService) {}
 
   ngOnInit(): void {
     this.listerVotes();

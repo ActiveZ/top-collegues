@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Collegue } from 'src/app/models';
 import { DataService } from 'src/app/services/data.service';
@@ -8,12 +8,12 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './liste-collegues.component.html',
   styleUrls: ['./liste-collegues.component.scss'],
 })
-export class ListeColleguesComponent implements OnInit {
+export class ListeColleguesComponent {
   collegues?: Observable<Collegue[]>;
 
   constructor(private dataSrv: DataService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     // abonnement au flux
     this.collegues = this.dataSrv.collegues$.asObservable();
     // chargement de la liste
