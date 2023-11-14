@@ -26,6 +26,7 @@ export class DataService {
   }
 
   postCollegue(collegue: Partial<Collegue>): Observable<Collegue> {
+    collegue.score = 0;
     return this.http.post<Collegue>(this.url + '/collegues', collegue);
   }
 

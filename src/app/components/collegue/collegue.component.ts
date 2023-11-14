@@ -10,12 +10,12 @@ import { DataService } from 'src/app/services/data.service';
 export class CollegueComponent {
   @Input() collegue!: Collegue;
 
-  btAimerDisabled: boolean = false;
-  btDetesterDisabled: boolean = false;
+  btAimerDisabled = false;
+  btDetesterDisabled = false;
 
   constructor(private dataSrv: DataService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.btAimerDisabled = this.collegue.score >= 1000;
     this.btDetesterDisabled = this.collegue.score <= -1000;
   }
