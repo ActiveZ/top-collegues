@@ -15,17 +15,17 @@ export class NouveauCollegueTemplateFormComponent {
   msgErreur?: string;
   msgOk?: string;
 
-  constructor(private dataSrv: DataService, private router: Router) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   submit(formCollegue: NgForm) {
     // pour form reset
     this.msgOk = undefined;
     this.msgErreur = undefined;
 
-    this.dataSrv.postCollegue(this.newCollegue).subscribe({
+    this.dataService.postCollegue(this.newCollegue).subscribe({
       next: (data) => {
         console.log(data);
-        this.msgOk = 'Collegue créé avec succès !';
+        this.msgOk = 'Collègue créé avec succès !';
         this.newCollegue = {};
         formCollegue.reset(); // réinitialiser les informations de validation, utile ?
         this.router.navigate(['accueil']);

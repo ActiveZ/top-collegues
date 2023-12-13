@@ -39,6 +39,14 @@
       "pseudo": "heavydog611",
       "photo": "https://randomuser.me/api/portraits/men/64.jpg",
       "score": 0
+    },
+    {
+      "pseudo": "pseudo",
+      "nom": "nom",
+      "prenom": "prenom",
+      "photo": "aucune",
+      "score": 0,
+      "id": "x599teu"
     }
   ],
   "votes": []

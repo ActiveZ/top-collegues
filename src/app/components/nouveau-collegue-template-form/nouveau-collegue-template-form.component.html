@@ -15,6 +15,21 @@
       </div>
     </div>
 
+    <!-- prénom -->
+    <div class="col-3">
+      <label for="lname" class="form-lablel">Prénom</label>
+      <input type="text" [(ngModel)]="newCollegue.prenom" class="form-control" name="prenom" #prenom="ngModel"
+        id="lname" placeholder="Votre prénom" required minlength="2" />
+      <div *ngIf="!formCollegue.errors && prenom.dirty" class="valid-feedback">Prénom valide</div>
+      <div class="invalid-feedback">Entrez un prénom</div>
+      <div *ngIf="prenom.dirty && prenom.invalid" class="invalid-custom">
+        Le prénom doit avoir au moins 2 caractères
+      </div>
+      <div *ngIf="formCollegue.errors && prenom.dirty" class="invalid-custom">
+        Nom et prénom identiques
+      </div>
+    </div>
+
     <!-- nom -->
     <div class="col-3">
       <label for="fname" class="form-lablel">Nom</label>
@@ -26,21 +41,6 @@
         Le nom doit avoir au moins 2 caractères
       </div>
       <div *ngIf="formCollegue.errors && nom.dirty" class="invalid-custom">
-        Nom et prénom identiques
-      </div>
-    </div>
-
-    <!-- prenom -->
-    <div class="col-3">
-      <label for="lname" class="form-lablel">Prénom</label>
-      <input type="text" [(ngModel)]="newCollegue.prenom" class="form-control" name="prenom" #prenom="ngModel"
-        id="lname" placeholder="Votre prénom" required minlength="2" />
-      <div *ngIf="!formCollegue.errors && prenom.dirty" class="valid-feedback">Prénom valide</div>
-      <div class="invalid-feedback">Entrez un prénom</div>
-      <div *ngIf="prenom.dirty && prenom.invalid" class="invalid-custom">
-        Le prénom doit avoir au moins 2 caractères
-      </div>
-      <div *ngIf="formCollegue.errors && prenom.dirty" class="invalid-custom">
         Nom et prénom identiques
       </div>
     </div>
@@ -64,7 +64,7 @@
 
   <!-- résultat du submit -->
   <div class="m-2 p-2">
-    <div *ngIf="msgOk" class="bg-success"> {{msgOk}}</div>
-    <div *ngIf="msgErreur" class="bg-danger"> {{msgErreur}}</div>
+    <div *ngIf="msgOk" class="bg-success text-white"> {{msgOk}}</div>
+    <div *ngIf="msgErreur" class="bg-danger text-white"> {{msgErreur}}</div>
   </div>
 </div>

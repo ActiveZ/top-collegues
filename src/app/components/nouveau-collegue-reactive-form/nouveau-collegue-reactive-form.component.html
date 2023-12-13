@@ -1,1 +1,43 @@
-<p>nouveau-collegue-reactive-form works!</p>
+<form [formGroup]="creerColForm" (ngSubmit)="creer()" class="row g-3 text-start">
+  <h1>Ajouter un nouveau collègue (ReactiveFormsModule)</h1>
+
+  <!-- pseudo -->
+  <div class="form-group col-3">
+    <label>Pseudo</label>
+    <input type="text" formControlName="pseudo" class="form-control">
+    <p *ngIf="pseudo && pseudo?.errors?.['pseudoExists']" class="text-danger">pseudo déjà pris</p>
+  </div>
+
+  <!-- prénom -->
+  <div class="form-group col-3">
+    <label>Prénom</label>
+    <input type="text" formControlName="prenom" class="form-control">
+    <p *ngIf="prenomError" class="text-danger">Prénom incorrect</p>
+  </div>
+
+  <!-- nom -->
+  <div class="form-group col-3">
+    <label>Nom</label>
+    <input type=" text" formControlName="nom" class="form-control">
+    <p *ngIf="nomError" class="text-danger">Nom incorrect</p>
+  </div>
+
+  <!-- photo -->
+  <div class="form-group col-3">
+    <label>Photo</label>
+    <input type="text" formControlName="photo" class="form-control">
+    <p *ngIf="photoError" class="text-danger">URL Photo incorrect</p>
+
+    
+    <p *ngIf="creerColForm.invalid && creerColForm.errors && creerColForm.errors['nomPrenomIdentique']"
+    class="text-danger">
+    Même nom et prénom.
+  </p>
+</div>
+<div class= "text-center">
+  <input type="submit" value="Valider" class="btn btn-primary" [disabled]="creerColForm.invalid">
+</div>
+
+  <p *ngIf="msgErreur">{{msgErreur}}</p>
+
+</form>
